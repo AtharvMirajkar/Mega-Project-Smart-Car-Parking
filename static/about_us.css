@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+.about-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.about-heading {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.names-container {
+  display: flex;
+  justify-content: center;
+}
+
+.name {
+  font-size: 18px;
+  margin: 5px;
+}

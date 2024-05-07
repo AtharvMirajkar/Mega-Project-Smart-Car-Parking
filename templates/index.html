@@ -1,0 +1,312 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Lot Detection </title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+    <!-- Bootstrap Link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap Link -->
+
+
+    <!-- Font Awesome Cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- Font Awesome Cdn -->
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+</head>
+<body>
+    
+
+
+
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg" id="navbar">
+        <div class="container">
+          <a class="navbar-brand" href="#detect" id="logo"><span>Smart </span>Parking</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span><i class="fa-solid fa-bars"></i></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#detect">Detect</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#sample">Sample</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+             
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <!-- Navbar End -->
+
+
+
+
+
+    <!-- Home Section Start -->
+    <div class="home">
+        <div class="content">
+            <h5>Welcome To Smart Parking</h5>
+            <h1> 
+              <!-- detect -->
+              <span class="changecontent"></span>
+            </h1>
+            <p>Make Your Parking Easy</p>
+            <a href="#detect">Detect</a>
+        </div>
+    </div>
+    <!-- Home Section End -->
+
+
+
+
+
+    <!-- Section Detect Start -->
+    <section class="book" id="detect">
+      <div class="container">
+
+        <div class="main-text">
+          <h1><span>D</span>etect</h1>
+        </div>
+        
+        <div class="row">
+
+          <div class="col-md-6 py-3 py-md-0">
+            <div class="card">
+              <form class="form-file" method=post enctype=multipart/form-data name="form1">
+                <centre><img src="/static/pytorch.png" alt="" width="72" ></centre>
+                <h1 >Upload any image or video</h1>
+                <input type="file" name="file" class="form-control" id="inputfile" >
+        
+                <br/>
+                
+                <button class="submit" type="submit">Upload</button>
+                <p class="mt-5 mb-3 text-muted">Built using Pytorch & Flask</p>
+            </form>
+            </div>
+          </div>
+
+          <div class="col-md-6 py-3 py-md-0">
+            <script src="//code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+            <script src="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+            <div class = "card">
+              
+              <img id="my-video-image" src="{{ url_for('video_feed') }}" style="height:445; width:400px" />
+              <!-- 
+                <source src="video/supercoolvideo.mp4" type="video/mp4" />
+              </video> 
+                -->
+                <div class="main-txt">
+                  <h3 id="empty_num"> <span id="empty_str"></span></h3>
+                  <h3 id="occupancied_num"> <span id="occupancied_str"></span></h3>
+                </div>
+              
+            </div>
+
+
+            <script>
+            document.getElementById("my-image").onload = function() {
+              this.style.display = "block";
+            };
+            </script>
+            <script>
+              document.getElementById("my-image").onload = function() {
+                document.getElementById('empty_num').innerHTML = "response.data.random_number";
+            };
+            </script>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- Section Detect End -->
+
+
+
+
+
+
+
+
+    <!-- Section Sample Start -->
+    <section class="packages" id="sample">
+      <div class="container">
+        
+        <div class="main-txt">
+          <h1><span>S</span>ample</h1>
+        </div>
+
+        <div class="row" style="margin-top: 30px;">
+
+          <div class="col-md-4 py-3 py-md-0">
+
+            <div class="card">
+              <img src="/static/detected-img-1.jpg" alt="">
+              <div class="card-body">
+                <h3>Sample Detection Image 1</h3>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+
+            <div class="card">
+              <img src="/static/detected-img-2.jpg" height="250px" alt="">
+              <div class="card-body">
+                <h3>Sample Detection Image 2</h3>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+
+            <div class="card">
+              <img src="/static/detected-img-3.png" alt="" height="250px">
+              <div class="card-body">
+                <h3>Sample Detection Image 3</h3>
+              </div>
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+
+
+        <div class="row" style="margin-top: 30px;">
+
+          <div class="col-md-4 py-3 py-md-0">
+
+            <div class="card">
+              <video controls autoplay muted>
+                <source src="static/sample-vid-1.mp4" type="video/mp4" />
+              </video>              
+            <div class="card-body">
+                <h3>Sample Detection Video 1</h3>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+
+            <div class="card">
+              <video controls autoplay muted>
+                <source src="static/sample-vid-2.mp4" type="video/mp4" />
+              </video>              
+            <div class="card-body">
+                <h3>Sample Detection Video 2</h3>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+
+            <div class="card">
+              <video controls autoplay muted>
+                <source src="static/sample-vid-1.mp4" type="video/mp4"  />
+              </video>              
+            <div class="card-body">
+                <h3>Sample Detection Video 3</h3>
+              </div>
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+
+      </div>
+    </section>
+    <!-- Section Sample End -->
+
+
+
+    <!-- About Start -->
+    <section class="about" id="about">
+      <div class="container">
+
+        <div class="main-txt">
+          <h1>About <span>Us</span></h1>
+        </div>
+
+        <div class="row" style="margin-top: 50px;">
+
+          <div class="col-md-6 py-3 py-md-0">
+            <div class="card">
+              <img src="/static/kit-logo.png" alt="">
+            </div>
+          </div>
+
+          <div class="col-md-6 py-3 py-md-0">
+            <h2>Smart Parking</h2>
+            <p>We are a team of enthusiastic and driven final year students from KIT's College of Engineering in Kolhapur, passionate about solving real-world problems using cutting-edge technologies. As part of our final year project, we have successfully developed a parking occupancy detection system by combining Flask, a powerful Python web framework, and the YOLO (You Only Look Once) model for object detection.
+              Our project aims to address the challenges associated with parking management in urban areas, including limited parking spaces, congestion, and inefficiencies. By utilizing Flask and the YOLO model, we have created an intelligent system that accurately detects and monitors the occupancy status of parking spaces in real-time.</p>
+            <!-- <button id="about-btn">Read More...</button> -->
+          </div>
+
+        </div>
+
+      </div>
+      <div class="main-txt">
+        <h3>Omkar <span>Patil</span></h3>
+        <h3>Vedant <span>Patil</span></h3>
+        <h3>Omkar <span>Patil</span></h3>
+        <h3>Atharv <span>Mirajkar</span></h3>
+
+      </div>
+    </section>
+    <!-- About End -->
+
+
+
+
+
+
+
+
+    <!-- Footer Start -->
+    <footer id="footer">
+      <h1><span>S</span>mart <span>P</span>arking</h1>
+      <p>Manage With Smart.</p>
+      <div class="social-links">
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-brands fa-pinterest-p"></i>
+      </div>
+      <div class="credit">
+      </div>
+    </footer>
+    <!-- Footer End -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
